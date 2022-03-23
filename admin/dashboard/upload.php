@@ -39,7 +39,7 @@ include("includes/top.php");
                         <div class="form-group">
                             <label for="exampleInputPassword1">Select a Category .:</label>
                             <select id="category" class="form-control">
-                                <option id="category">Grade Classes</option>
+                                <option id="category">Basic Classes</option>
                                 <option id="category">Junior Secondary School</option>
                                 <option id="category">Senior Secondary School</option>
                                 <option id="category">Online Examination</option>
@@ -87,7 +87,7 @@ include("includes/top.php");
     <div class="modal-dialog modal-lg">
         <div class="modal-content bg-info">
             <div class="modal-header">
-                <h4 class="modal-title">Create a CBT <?php echo date("Y"); ?> class and subject for Grade Classes</h4>
+                <h4 class="modal-title">Create a CBT <?php echo date("Y"); ?> class and subject for Basic Classes</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
             </div>
@@ -98,12 +98,12 @@ include("includes/top.php");
                         <div class="form-group">
                             <label for="exampleInputPassword1">Select a Class .:</label>
                             <select id="catclass" class="form-control">
-                                <option id="catclass">Grade one</option>
-                                <option id="catclass">Grade Two</option>
-                                <option id="catclass">Grade Three</option>
-                                <option id="catclass">Grade Four</option>
-                                <option id="catclass">Grade Five</option>
-                                <option id="catclass">Grade Six</option>
+                                <option id="catclass">Basic one</option>
+                                <option id="catclass">Basic Two</option>
+                                <option id="catclass">Basic Three</option>
+                                <option id="catclass">Basic Four</option>
+                                <option id="catclass">Basic Five</option>
+                                <option id="catclass">Basic Six</option>
                             </select>
                         </div>
 

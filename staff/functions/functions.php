@@ -156,12 +156,12 @@ $errors = [];
 
 function login_user($user_name, $password) {
 
-$sql = "SELECT `password` FROM `login` WHERE `username` = '".escape($user_name)."'";
+$sql = "SELECT `admpword` FROM `login` WHERE `username` = '".escape($user_name)."'";
 $result = query($sql);
 if(row_count($result) == 1) {
 	$row = mysqli_fetch_array($result);
 
-	$user_password = $row['password'];
+	$user_password = $row['admpword'];
 
 	if($password == $user_password) {
 		$_SESSION['cbt'] = $user_name;
@@ -250,7 +250,7 @@ confirm($result);
 //time allowed
 
 $sqll = "INSERT INTO timer(`subject`, `hour`, `min`, `attempt`, `instruct`, `acesscode`)";
-$sqll.= " VALUES('$conc', '$hour', '$minutes', '$quess', '$instruct', 'FOGS')";
+$sqll.= " VALUES('$conc', '$hour', '$minutes', '$quess', '$instruct', 'PHS')";
 $resullt = query($sqll);	
 confirm($resullt);
 
@@ -331,8 +331,8 @@ confirm($result);
 
 //time allowed
 
-$sqll = "INSERT INTO timer(`subject`, `hour`, `min`, `attempt`, `instruct`)";
-$sqll.= " VALUES('$conc', '$jsshour', '$jssminutes', '$jssquess', '$jssedit')";
+$sqll = "INSERT INTO timer(`subject`, `hour`, `min`, `attempt`, `instruct`, `acesscode`)";
+$sqll.= " VALUES('$conc', '$jsshour', '$jssminutes', '$jssquess', '$jssedit', 'PHS')";
 $resullt = query($sqll);
 confirm($resullt);
 
@@ -415,8 +415,8 @@ confirm($result);
 
 //time allowed
 
-$sqll = "INSERT INTO timer(`subject`, `hour` , `min`, `attempt`, `instruct`)";
-$sqll.= " VALUES('$conc', '$sshour' , '$ssminutes', '$ssquess', '$ssedit')";
+$sqll = "INSERT INTO timer(`subject`, `hour` , `min`, `attempt`, `instruct`, `acesscode`)";
+$sqll.= " VALUES('$conc', '$sshour' , '$ssminutes', '$ssquess', '$ssedit', 'PHS')";
 $resullt = query($sqll);
 confirm($resullt);
 
@@ -496,8 +496,8 @@ confirm($result);
 
 //time allowed
 
-$sqll = "INSERT INTO timer(`subject`, `hour`, `min`, `attempt`, `instruct`)";
-$sqll.= " VALUES('$conc', '$othour', '$otminutes', '$otquess', '$otedit')";
+$sqll = "INSERT INTO timer(`subject`, `hour`, `min`, `attempt`, `instruct`, `acesscode`)";
+$sqll.= " VALUES('$conc', '$othour', '$otminutes', '$otquess', '$otedit', 'PHS')";
 $resullt = query($sqll);
 confirm($resullt);
 
@@ -516,6 +516,7 @@ if(isset($_POST['sn']) && isset($_POST['ques']) && isset($_POST['oa']) && isset(
 
 	//assign variables
 
+	
 	$sn 		= $_POST['sn'];
 	$ques 		= escape($_POST['ques']);
 	$oa 		= escape($_POST['oa']);
@@ -525,6 +526,7 @@ if(isset($_POST['sn']) && isset($_POST['ques']) && isset($_POST['oa']) && isset(
 	$cor 		= escape($_POST['option']);
 	$subj 		= escape($_POST['subj']);
 
+	
 //check if question serial number exist
 
 	if(sn_exist($sn, $subj)) {
@@ -839,20 +841,21 @@ confirm($result);
 
 
 //validate update access code
-if(isset($_POST['ascode'])) {
+if(isset($_POST['ascode']) && isset($_POST['acssbj'])) {
 
 	$ascode = clean($_POST['ascode']);
+	$acssbj = clean($_POST['acssbj']);
 
-	updateaccess($ascode); 
+	updateaccess($ascode, $acssbj); 
 } 
 
 
 //update updatedata
-function updateaccess($ascode) {
+function updateaccess($ascode, $acssbj) {
 
 $nww 	= md5(rand(0,99999999));
 
-$sql = "UPDATE `login` SET `acesscode` = '$ascode'";
+$sql = "UPDATE `timer` SET `acesscode` = '$ascode' WHERE `subject` = '$acssbj'";
 $result = query($sql);
 echo '<script>window.location.href ="./access?id='.$nww.'"</script>';	
 

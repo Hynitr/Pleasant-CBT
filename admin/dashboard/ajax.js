@@ -3,7 +3,7 @@ $(document).ready(function () {
   $("#continue").click(function () {
     var category = $("#category").val();
     //modal for Basic School
-    if (category == "Grade Classes") {
+    if (category == "Basic Classes") {
       $("#modal-basic").modal({ backdrop: "static" });
     }
     //modal for Junior School

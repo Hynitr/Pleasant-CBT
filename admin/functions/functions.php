@@ -250,7 +250,7 @@ confirm($result);
 //time allowed
 
 $sqll = "INSERT INTO timer(`subject`, `hour`, `min`, `attempt`, `instruct`, `acesscode`)";
-$sqll.= " VALUES('$conc', '$hour', '$minutes', '$quess', '$instruct', 'FOGS')";
+$sqll.= " VALUES('$conc', '$hour', '$minutes', '$quess', '$instruct', 'PHS')";
 $resullt = query($sqll);	
 confirm($resullt);
 
@@ -331,8 +331,8 @@ confirm($result);
 
 //time allowed
 
-$sqll = "INSERT INTO timer(`subject`, `hour`, `min`, `attempt`, `instruct`)";
-$sqll.= " VALUES('$conc', '$jsshour', '$jssminutes', '$jssquess', '$jssedit')";
+$sqll = "INSERT INTO timer(`subject`, `hour`, `min`, `attempt`, `instruct`, `acesscode`)";
+$sqll.= " VALUES('$conc', '$jsshour', '$jssminutes', '$jssquess', '$jssedit', 'PHS')";
 $resullt = query($sqll);
 confirm($resullt);
 
@@ -415,8 +415,8 @@ confirm($result);
 
 //time allowed
 
-$sqll = "INSERT INTO timer(`subject`, `hour` , `min`, `attempt`, `instruct`)";
-$sqll.= " VALUES('$conc', '$sshour' , '$ssminutes', '$ssquess', '$ssedit')";
+$sqll = "INSERT INTO timer(`subject`, `hour` , `min`, `attempt`, `instruct`, `acesscode`)";
+$sqll.= " VALUES('$conc', '$sshour' , '$ssminutes', '$ssquess', '$ssedit', 'PHS')";
 $resullt = query($sqll);
 confirm($resullt);
 
@@ -496,8 +496,8 @@ confirm($result);
 
 //time allowed
 
-$sqll = "INSERT INTO timer(`subject`, `hour`, `min`, `attempt`, `instruct`)";
-$sqll.= " VALUES('$conc', '$othour', '$otminutes', '$otquess', '$otedit')";
+$sqll = "INSERT INTO timer(`subject`, `hour`, `min`, `attempt`, `instruct`, `acesscode`)";
+$sqll.= " VALUES('$conc', '$othour', '$otminutes', '$otquess', '$otedit', 'PHS')";
 $resullt = query($sqll);
 confirm($resullt);
 
